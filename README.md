@@ -8,4 +8,7 @@ SwitchVsIf 在Android 手机上的 性能测试
 
 ![](https://github.com/longtaoge/SwitchVsIf/blob/e46719a9e0f2bb97424e1db9ef7e052da356c36f/app/src/main/res/mipmap-xxhdpi/vs2.png)
 
+
+
 ![](https://github.com/longtaoge/SwitchVsIf/blob/e46719a9e0f2bb97424e1db9ef7e052da356c36f/app/src/main/res/mipmap-xxhdpi/vs1.png)
+
