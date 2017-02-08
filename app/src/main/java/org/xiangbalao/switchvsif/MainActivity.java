@@ -19,7 +19,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Integer count =10000;
+    private Integer count = 10000;
     private TextView tv_if;
     private TextView tv_switch;
     private RadioGroup rg1;
@@ -30,9 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView mTvTotal;
 
 
-
-    private static final  int TESTYTPE_IF=1;
-    private static final int TESTYTPE_SWITHC=2;
+    private static final int TESTYTPE_IF = 1;
+    private static final int TESTYTPE_SWITHC = 2;
     private ProgressDialog dialog;
 
 
@@ -46,8 +45,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         dialog = ProgressDialog.createDialog(this);
         dialog.setMessage("测试中...");
-
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
 
-                switch (testType){
+                switch (testType) {
                     case TESTYTPE_IF:
 
                         RunTestIf(tv_if);
@@ -83,65 +80,112 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    public class MyThread extends Thread {
+        ThreadListener listener;
+        @Override
+        public void run() {
+            super.run();
+            if (listener != null) {
+                listener.onThreadRun();
+            }
+
+
+        }
+
+
+
+        public void setListener(ThreadListener listener) {
+            this.listener = listener;
+        }
+    }
+
+
+    interface ThreadListener {
+
+        void onThreadRun();
+
+    }
+
 
     private void RunTestSwich(final TextView textview) {
-        new Runnable(){
-            @Override
-            public void run() {
 
-                final long start=  SystemClock.currentThreadTimeMillis();
+
+
+
+
+        MyThread thread=new MyThread();
+
+
+        thread.setListener(new ThreadListener() {
+            @Override
+            public void onThreadRun() {
+                final long start = SystemClock.currentThreadTimeMillis();
                 testSwich();
-                final   long end=  SystemClock.currentThreadTimeMillis();
+                final long end = SystemClock.currentThreadTimeMillis();
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        getTaskId();
 
-                        long tem= end-start;
-                        textview.setText(tem+"ms");
+                        long tem = end - start;
+                        textview.setText(tem + "ms");
                         dialog.dismiss();
                     }
                 });
 
             }
-        }.run();
+        });
+
+        thread.start();
+
+
+
+
+
     }
 
 
     private void RunTestIf(final TextView textview) {
 
-        new Runnable(){
+
+
+        MyThread thread=new MyThread();
+
+
+        thread.setListener(new ThreadListener() {
             @Override
-            public void run() {
-
-
-                final long start=  SystemClock.currentThreadTimeMillis();
+            public void onThreadRun() {
+                final long start = SystemClock.currentThreadTimeMillis();
                 testIf();
-                final   long end=  SystemClock.currentThreadTimeMillis();
+                final long end = SystemClock.currentThreadTimeMillis();
 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 
-                        long tem= end-start;
-                        textview.setText(tem+"ms");
+                        long tem = end - start;
+                        textview.setText(tem + "ms");
                         dialog.dismiss();
                     }
                 });
 
             }
-        }.run();
+        });
+
+        thread.start();
+
+
+
     }
 
     private void testSwich() {
 
 
-
-
         for (int i = 0; i <= count; i++) {
 
 
-         //   Log.i(MainActivity.class.getSimpleName(),String.valueOf(i));
+            //   Log.i(MainActivity.class.getSimpleName(),String.valueOf(i));
 
             switch (getRandom()) {
                 case 0:
@@ -149,15 +193,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     break;
                 case 1:
-                    sendMessage( i);
+                    sendMessage(i);
                     break;
-             
+
                 case 2:
-                    sendMessage( i);
+                    sendMessage(i);
                     break;
-              
+
                 case 3:
-                    sendMessage( i);
+                    sendMessage(i);
                     break;
                 case 4:
                     sendMessage(i);
@@ -167,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     sendMessage(i);
                     break;
                 case 6:
-                    sendMessage( i);
+                    sendMessage(i);
                     break;
 
                 case 7:
@@ -177,295 +221,295 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     sendMessage(i);
                     break;
                 case 9:
-                    sendMessage( i);
+                    sendMessage(i);
                     break;
 
                 case 10:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 11:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 12:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 13:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 14:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 15:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 16:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 17:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 18:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 19:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 20:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 21:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 22:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 23:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 24:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 25:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 26:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 27:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 28:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 29:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 30:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 31:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 32:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 33:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 34:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 35:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 36:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 37:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 38:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 39:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
 
                 case 40:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 41:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 42:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 43:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 44:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 45:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 46:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 47:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 48:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 49:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
 
                 case 50:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 51:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 52:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 53:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 54:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 55:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 56:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 57:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 58:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 59:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 70:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 71:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 72:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 73:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 74:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 75:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 76:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 77:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 78:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 79:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 80:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 81:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 82:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 83:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 84:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 85:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 86:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 87:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 88:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 89:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
 
                 case 90:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 91:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 92:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 93:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 94:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 95:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 96:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
 
                 case 97:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 98:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
                 case 99:
-                    sendMessage(  i);
+                    sendMessage(i);
                     break;
-                
+
                 default:
-                    sendMessage(  i);
-                    
+                    sendMessage(i);
+
                     break;
-                
+
 
             }
 
@@ -476,8 +520,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void testIf() {
-
-
 
 
         for (int i = 0; i <= count; i++) {
@@ -772,23 +814,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void sendMessage(final int i) {
 
-        if ((i%1000)==0){
+        if ((i % 1000) == 0) {
 
-            Log.i(MainActivity.class.getSimpleName(),String.valueOf(i));
+            Log.i(MainActivity.class.getSimpleName(), String.valueOf(i));
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
 
-                    mTvTotal.setText(String.valueOf(i/1000)+"k");
+                    mTvTotal.setText(String.valueOf(i / 1000) + "k");
 
                 }
             });
 
 
-
         }
-
-
 
 
     }
@@ -801,7 +840,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private int getRandom() {
         Random random = new Random();
-        int result =random.nextInt(100);
+        int result = random.nextInt(100);
         Log.i("RandomS", String.valueOf(result));
         return result;
 
@@ -812,7 +851,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv_if = (TextView) findViewById(R.id.tv_if);
         tv_switch = (TextView) findViewById(R.id.tv_switch);
         rg1 = (RadioGroup) findViewById(R.id.rg1);
-
 
 
         rg_total = (RadioGroup) findViewById(R.id.rg_total);
@@ -826,35 +864,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_if:
-                        testType=TESTYTPE_IF;
+                        testType = TESTYTPE_IF;
                         break;
                     case R.id.rb_sw:
-                        testType=TESTYTPE_SWITHC;
+                        testType = TESTYTPE_SWITHC;
                         break;
                 }
             }
         });
 
 
-
         rg_total.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
+                switch (checkedId) {
                     case R.id.radioButton:
-                        count=1*10000;
+                        count = 1 * 10000;
                         break;
                     case R.id.radioButton1:
-                        count=10*10000;
+                        count = 10 * 10000;
                         break;
                     case R.id.radioButton2:
-                        count=100*10000;
+                        count = 100 * 10000;
                         break;
                     case R.id.radioButton3:
-                        count=500*10000;
+                        count = 500 * 10000;
                         break;
                     case R.id.radioButton4:
-                        count=1000*10000;
+                        count = 1000 * 10000;
                         break;
 
 

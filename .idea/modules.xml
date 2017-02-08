@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SwitchVsIf.iml" filepath="$PROJECT_DIR$/SwitchVsIf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SwitchVsIf.iml" filepath="$PROJECT_DIR$/SwitchVsIf.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/electric/electric.iml" filepath="$PROJECT_DIR$/electric/electric.iml" />
       <module fileurl="file://$PROJECT_DIR$/electric/electric.iml" filepath="$PROJECT_DIR$/electric/electric.iml" />
     </modules>
   </component>

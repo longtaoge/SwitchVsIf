@@ -8,7 +8,7 @@
         android:id="@+id/loadingImageView"
        	android:layout_width="wrap_content"
        	android:layout_height="wrap_content"
-       	android:background="@anim/progress_round2"/>
+       	android:background="@drawable/progress_round2"/>
     <TextView
         android:id="@+id/id_tv_loadingmsg"
         android:layout_width="wrap_content"
